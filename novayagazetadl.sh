@@ -5,6 +5,5 @@ for i in $(seq 0 4)
 do
 	npurl=$(printf "%s" "$ngjson" | jq ".newspapers|.[${i}]|.pdfFile" | tr -d \")
 	nptitle=$(printf "%s" "$ngjson" | jq ".newspapers|.[${i}]|.title" | tr -d \")
-	wget -nc "$npurl" -O "$nptitle"
+	wget -nc "$npurl" -O "${nptitle}.pdf"
 done
-
